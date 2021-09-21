@@ -1,0 +1,109 @@
+\documentclass{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{hyperref}
+
+\title{SE 3XA3: Development Plan\\Jumbled Words}
+
+\author{Team 08, Shunbill Jumble
+	\\Shesan Balachandran, balacs1
+	\\Bill Nguyen, nguyew3
+	\\Muneeb Arshad, arsham14
+}
+
+\date{}
+
+%\input{../Comments}
+
+\begin{document}
+	
+	\begin{table}[hp]
+		\caption{Revision History} \label{TblRevisionHistory}
+		\begin{tabularx}{\textwidth}{llX}
+			\toprule
+			\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
+			\midrule
+			Feb/03/2021 & Shesan Balachandran & Initial Draft\\
+			Feb/03/2021 & Bill Nguyen & Initial Draft\\
+			Feb/03/2021 & Muneeb Arshad & Initial Draft\\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+
+\newpage
+
+\maketitle
+
+The document outlines the development plan of the Jumbled Words applications. The following documents entail the roles of each team member, the meeting procedure and the communication plans. It also covers the development flow for the project, proof of concept to highlight potential risks and technical feasibility as well the coding style and technologies that will be used throughout the project. The document also provides the project schedule to highlight milestones throughout the projected time span.
+
+\section{Team Meeting Plan}
+
+All team members of this project will meet twice weekly. The scheduled meetings will commence at 7:00 p.m. and will occur every Tuesday and Wednesday until the project is complete. These meetings will take place in the discord server where we can discuss virtually and work on the necessary tasks. For every meeting, group members will alternate being the chair of the meeting.\\ 
+\\
+The responsibility of the chair is to ensure that the agenda that was created is followed, forming a new agenda for the upcoming meeting, and ensuring all the assigned homework/tasks that were given in the previous meeting was completed. After, The chair of the current meeting and the other two members of the group will then work, discuss, brainstorm etc. on what should be completed for the next week and will divide tasks between all the group members to be completed for the following week.\\
+\\
+The agenda that is created by the chair of the meeting should illustrate what homework should be completed for the upcoming meeting, the specific tasks each group member is assigned to, which group members were present in the meeting and the duration of the meeting. The agenda for each week will be logged/maintained by all members until the project is complete. The agendas will be documented using either google docs or latex.
+
+\section{Team Communication Plan}
+
+The team communication plan will consist of regular updates about the project. Each team member is connected through Facebook messenger to communicate about general issues, any updates or reminders regarding the project. For better collaboration between team members, a discord server has been made to allow voice calls and share screens when necessary. We also inform other team members about when we push the code to keep everyone synchronized with our individual contributions. 
+
+\section{Team Member Roles}
+
+% Begin Section
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{| c | c | c |} 
+			\hline
+			Team Member & Role\\ 
+			\hline
+			Shesan Balachandran & Developer, Team Leader, Technical Writer, Tester\\
+			\hline
+			Muneeb Arshad & Developer, Scrum Master, Tester, Debugger, Designer \\ 
+			\hline
+			Bill Nguyen & Developer, Designer, Debugger, Tester, Git Master\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Team Roles}
+	\label{tab:my_label}
+\end{table}
+
+\section{Git Workflow Plan}
+
+The feature-branch Git workflow will be followed for the development of this project. There will be a centralized app repository (master) and different features will be implemented on feature branches and then merged onto the master branch. Tagging/Labelling mechanism will also be used to highlight specific points in the repository history that are important like specific milestones. So all issues/conflicts will be assigned to a specific milestone and this method of labelling will allow us to easily adjust/modify elements due to such grouping in the repository history. 
+
+\section{Proof of Concept Demonstration Plan}
+
+The scope of the project is to simply enhance the existing Jumbled Words application, but much customization is required to fulfill this goal. A complete overhaul of the backend is required to enable a lot of the new features as the current backend is simple and static. However, the existing front-end model can still be utilized and not much change is required here except the new additions.\\
+\\
+In terms of platforms, portability will be of concern. Jumbled words is a desktop application that is not developed using a mobile or web-friendly library. This would mean it will only be supported on desktop platforms and cannot be easily ported onto the web or mobile.\\
+\\
+This project is not without a few risks of its own. One of the potential stumbling blocks would be the user interface testing. Since the project will be implemented in Python and as a desktop application, there aren’t any good user interface testing libraries. To overcome this risk, it would require additional work to develop a custom testing pipeline from the ground up to efficiently test throughout the project lifecycle and for future maintenance. 
+
+\section{Technology}
+
+The project will use python as the programming language. The potential testing framework that will be used for this project is pytest which is a Python testing framework that supports complex functional testing for applications and libraries.We will continue using tkinter to design the frontend of the application. Project documentation will be documented using Latex and software reference documentation will be done using Doxygen. Visual code will be used as our standard IDE since it has remote pair programming which would allow us to be more efficient while collaborating on the project code.
+
+\section{Coding Style}
+
+The coding style that will be used in this project is the Google style guides for Python \cite{style}. The Google style guide is used worldwide, easy to follow and recognized as a respected style in many coding environments. The community for this style guide is quite large making it easy to reference specific questions and easily get help.
+
+\section{Project Schedule}
+
+For the project schedule please refer to the following link: 
+\href{https://gitlab.cas.mcmaster.ca/balacs1/se3xa3-project/-/tree/master/ProjectSchedule}{Project Schedule}
+
+\section{Project Review}
+N/A
+
+\begin{thebibliography}{9}
+	\bibitem{style} 
+	The google style guide.\\
+	\url{https://google.github.io/styleguide/pyguide.html}
+\end{thebibliography}
+
+\end{document}

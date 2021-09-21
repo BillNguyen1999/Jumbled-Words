@@ -1,0 +1,552 @@
+\documentclass[12,english]{article}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+
+
+
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+      colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\title{SE 3XA3: Module Interface Specification\\Jumbled Words}
+
+
+\author{Team 08, Shunbill Jumble
+	\\Shesan Balachandran, balacs1
+	\\Bill Nguyen, nguyew3
+	\\Muneeb Arshad, arsham14
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\clearpage
+
+\begin{table}[bp]
+	\caption{\bf Revision History}
+	\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+		\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+		\midrule
+		March 15 2021 & 0.0 & Initial Draft\\
+		\bottomrule
+	\end{tabularx}
+\end{table}
+
+
+\clearpage
+
+\tableofcontents
+\newpage
+
+\section{Module Hierarchy}
+\begin{table}[ht!]
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+{Hardware-Hiding Module} & ~ \\
+\midrule
+
+\multirow{3}{0.3\textwidth}{Behaviour-Hiding Module}
+& Main GUI Module \\
+& Settings Module \\ % difficulty, modes, categories,
+& Settings GUI Module \\ % showLeaderboard, showMainMenu, showGameModes, showDifficulty, showCategories
+& Game Control Module \\ %guessing words, submit, change words, answer
+& User GUI Module \\ %input username 
+
+
+\midrule
+
+\multirow{3}{0.3\textwidth}{Software Decision Module} 
+& User Module\\ % update to leaderboard according to scores
+& Leaderboard Module\\ % sort highest scores
+\bottomrule
+
+\end{tabular}
+\caption{Module Hierarchy}
+\label{TblMH}
+\end{table}
+
+\section{MIS of Main GUI Module}
+
+\subsection{Uses}
+Uses LeaderBoard Module
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+			init & - & - & -\\ \hline
+			showLeaderboard & - & GUI Display & -\\ \hline
+			quitGame & - & - & - \\ \hline
+			start & - & - & -\\ \hline
+			
+
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+		\subsubsection{Environmental Variables}
+		\subsubsection{Assumptions}
+    	
+		
+		\subsubsection{Access Program Semantics}
+		init():
+		
+		Input: None
+		
+		Transition: Show main menu GUI
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+        showLeaderboard():
+		
+		Input: None
+		
+		Transition: displays leaderboard screen when user wants to access the leaderboard via the main menu
+
+		Output: Displays leaderboard screen
+		
+		Exceptions: None\\
+		\\
+		quitGame():
+		
+		Input: None
+		
+		Transition: Closes application
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+		start():
+		
+		Input: None
+		
+		Transition: Show user GUI module
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+
+
+\section{MIS of Settings GUI Module}
+        \subsection{Uses}
+        Uses Settings module
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+			init & - & GUI Display & -\\ \hline
+			optionGameMode & - & GUI Display & - \\ \hline
+			optionDifficulty & - & GUI Display & - \\ \hline
+			optionCategory & - & GUI Display & - \\ \hline
+			
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+		\subsubsection{Environmental Variables}
+		\subsubsection{Assumptions}
+		%It is assumed the user has accessed this GUI through the mainGUI menu. \\
+		
+		\subsubsection{Access Program Semantics}
+		
+		init():
+		Input: None
+		
+		Output: Initialize GUI 
+		
+		Exceptions: None\\
+		\\
+	    optionGameMode():
+		
+		Input: None
+		
+		Transition: Uses settings module to select desired game mode (Ranked or Practice) and display game mode screen
+
+		Output: Displays game mode screen and one of the two buttons that represent Ranked and Practice mode is selected to set desired game mode
+		
+		Exceptions: None\\
+		\\
+		optionDifficulty():
+		
+		Input: None
+		
+		Transition: Uses settings module to select desired difficulty level (easy, medium or hard) and display difficulty level screen
+
+		Output: Display difficulty level screen and one of the three buttons that represent easy, medium and hard are selected to set the difficulty level of game 
+		Exceptions: None\\
+		\\
+		optionCategories():
+		
+		Input: None
+		
+		Transition: Uses settings module to select desired category and display category screen
+
+		Output: Display category screen and one of the categories button is selected and the game starts  
+		Exceptions: None\\
+		\\
+\section{MIS of Settings Module}
+\subsection{Uses}
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+			updateGameMode & int & - & - \\ \hline
+			updateDifficulty & int & - & - \\ \hline
+			updateCategories & int & - & - \\ \hline
+			
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+		difficulty: int - Selected difficulty\\
+		category: int - Selected category\\
+		gamemode: int - Selected gamemode\\
+		\subsubsection{Environmental Variables}
+		\subsubsection{Assumptions}
+		It is assumed the user has accessed this GUI through the mainGUI menu. \\
+		
+		\subsubsection{Access Program Semantics}
+
+		updateGameMode(int gamemode):
+		
+		Input: integer value that is mappable to a gamemode
+		
+		Transition: Update the gamemode state variable
+
+		Output: None
+		Exceptions: None\\
+		\\
+		updateDifficulty(int difficulty):
+		
+		Input: integer value that is mappable to a difficulty
+		
+		Transition: Update the difficulty state variable
+
+		Output: None
+		Exceptions: None\\
+		\\
+		updateCategories(int category):
+		
+		Input: integer value that is mappable to a category
+		
+		Transition: Update the category state variable
+
+		Output: None 
+		Exceptions: None\\
+		\\
+		
+
+		
+\section{MIS of User GUI Module}
+\subsection{Uses}
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+			init & - & GUI Display & -\\ \hline
+			optionUserName & - & GUI Display & - \\ \hline
+			submitUserName & str & GUI Display & - \\ \hline
+			
+			
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+		userName : str - username of the current player
+		\subsubsection{Environmental Variables}
+		\subsubsection{Assumptions}
+		It is assumed the user has accessed this GUI through the mainGUI menu. \\
+		
+		\subsubsection{Access Program Semantics}
+		
+		init():
+		
+		Input:None
+		
+		Output: The GUI display of the username menu, showcasing the username configuration options
+		
+		Exceptions: None\\
+		\\
+		optionUsername():
+		
+		Input:None
+		
+		Output: Display textbox and submit button to allow players to enter and submit username
+		
+		Exceptions: None\\
+		\\
+		submitUsername(str username):
+		
+		Input: String input of the player's username
+		
+		Transition: Updates the state variable username with corresponding username
+		
+		Output: Uses the GUI module to show the category option
+		
+		Exceptions: None\\
+		\\
+
+	
+\section{MIS of User Module}
+        \subsection{Uses}
+        userData: JSON file of user data consisting of username and scores
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+            addUser & String & - & FileNotFound\\ \hline
+			updateScore & String, int & - & FileNotFound\\ \hline
+			
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+	
+		
+		\subsubsection{Environmental Variables}
+
+		\subsubsection{Assumptions}
+		
+		\subsubsection{Access Program Semantics}
+		
+		addUser(String username): 
+		
+    	Input: Username of the player
+    	
+    	Transition: Appends the username of the player and score value as null to the JSON userData file if it does not exists
+    	
+    	Exceptions: FileNotFound if the JSON file can not be found
+    	
+    	Output: -\\
+		\\
+		updateScore(String username, int score):
+		
+		Input: Username and score of the player
+
+		Transition: Updates the new score of the player with corresponding username if the previous score is null or lower than the current score
+		
+		Output: - \\
+		
+\section{MIS of Leaderboard Module}
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+            getScores & file & array & FileNotFound\\ \hline
+			getleaderboard & array & array & -\\ \hline
+			
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+		
+		topUsers: Array of tuples of size 2 - tuple[0] is the username and tuple[1] is the user score
+		
+		\subsubsection{Environmental Variables}
+
+		\subsubsection{Assumptions}
+		
+		\subsubsection{Access Program Semantics}
+		
+		getScores(File userData): 
+		
+    	Input: Json file of user data with username and scores
+    	
+    	Transition: Reads JSON file of userData and store it in topUsers
+    	
+    	Exceptions: FileNotFound if the file name is invalid
+    	
+    	Output: topUsers\\
+		\\
+		getLeaderboard(topUsers):
+		
+		Input: Array of tuples topUsers that has user data
+
+		Transition: sorts the topUsers from highest to lowest scores and outputs the first 10 tuples
+		
+		Output: topUsers\\
+		\\
+\section{MIS of Game Control Module}
+
+\subsection{Uses}
+Uses Settings Module
+		\subsection{Interface Syntax}
+		\subsubsection{Exported Access Programs}
+		\begin{tabular}[pos]{|c|c|c|c|}
+			
+			\hline
+			%	\label
+			\textbf{Name}& \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\ \hline
+			init & - & - & -\\ \hline
+			showCurrentQuestion & - & Display question & -\\ \hline
+			getWordList & - & - & - \\ \hline
+			getGuess & str & - & -\\ \hline
+			isGuessCorrect & str & bool & -\\ \hline
+			isTimeOut & - & bool & -\\ \hline
+			clickedBack  & - & Display previous page & -\\ \hline
+			clickedNext & - & Display next question  & -\\ \hline
+			clickedCheckWord & - & Display result & -\\ \hline
+			
+
+		\end{tabular}
+		
+		\subsection{Interface Semantics}
+		\subsubsection{State Variables}
+	    guessedWord: str - Representation of user's current guess\\
+		timeOut: int - Time left until the user can guess the word\\
+		currentWord: str - Target value for the user's guess\\
+
+		\subsubsection{Environmental Variables}
+		
+		\subsubsection{Assumptions}
+    	Difficulty and category are selected before starting the game.\\
+		
+		\subsubsection{Access Program Semantics}
+		init():
+		
+		Input: None
+		
+		Transition: Get values from the Settings module and sets state variables to their required values
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+		showCurrentQuestion():
+		
+		Input: None
+		
+		Transition: Display question
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+				\\
+		getWordList():
+		
+		Input: None
+		
+		Transition: Extracts the suitable words for the current game based on settings
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+		getGuess(str guess):
+		
+		Input: String input of the user's guess
+		
+		Transition: Updates the state variable for the current guess
+		
+		Output: None
+		
+		Exceptions: None\\
+		\\
+		isGuessCorrect(str guess):
+		
+		Input: String input of the user's guess
+		
+		Transition: Validates whether the users guess matches the target word
+		
+		Output: Boolean result of match or no match
+		
+		Exceptions: None\\
+		\\
+		isTimeOut():
+		
+		Input: None
+		
+		Transition: None
+		
+		Output: Checks if the user has timed-out for the current word
+		
+		Exceptions: None\\
+		\\
+		clickedBack():
+		
+		Input: None
+		
+		Transition: None
+		
+		Output: Display previous page
+		
+		Exceptions: None\\
+		\\
+		clickedNext():
+		
+		Input: None
+		
+		Transition: None
+		
+		Output: Display next question 
+		
+		Exceptions: None\\
+		\\
+		clickedCheckWord():
+		
+		Input: None
+		
+		Transition: None
+		
+		Output: Display result of guess 
+		
+		Exceptions: None\\
+		\\
+		
+
+
+
+\end{document}

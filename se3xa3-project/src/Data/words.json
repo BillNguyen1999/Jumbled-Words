@@ -1,0 +1,43 @@
+{
+    "animals": {
+        "easy": ["bird", "dog", "frog", "cat", "rat", "deer", "fish", "fox", "gecko", 
+            "goat", "hare", "lion", "mole", "olm", "otter", "rat", "seal", "wolf", "swan", 
+            "puma", "pig", "toad", "bear", "fly", "duck"],
+        "medium": ["gorilla", "elephant", "donkey", "mouse", "monkey", "sheep", "shark", "whale", "falcon",
+            "sloth", "snake", "turkey", "zebra", "parrot", "octopus", "hamster", "goose", "lizard", "chicken"], 
+        "hard": ["aardvark", "bumblebee", "butterfly", "bloodhound", "alligator", "vulture", 
+            "walrus", "mammoth", "penguin", "toucan", "dragon", "reindeer", "raccoon", "tortoise", "muskrat", 
+            "kangaroo","leopard", "greyhound", "jellyfish", "dragonfly", "crocodile", "cockroach", "centipede", 
+            "butterfly"]
+    },
+    "bodyparts": {
+        "easy": ["eye", "ear", "leg", "jaw", "arm"],
+        "medium": ["head", "hair", "nose", "chin", "foot"],
+        "hard": ["shoulder", "elbow", "forehead", "eyebrow", "finger"]
+    },
+    "colours": {
+        "easy": ["red", "blue", "pink", "lime", "gold"],
+        "medium": ["white", "green", "cyan", "purple", "navy"],
+        "hard": ["silver", "black", "orange", "brown", "yellow"]
+    },
+    "fruits": {
+        "easy": ["apple", "peach", "mango", "pear", "kiwi"],
+        "medium": ["cherry", "papaya", "orange", "banana", "coconut"],
+        "hard": ["watermelon", "pineapple", "blueberry", "mulberry", "tamarind"]
+    },
+    "shapes":{
+        "easy": ["rectangle", "circle", "square", "cube", "cone"],
+        "medium": ["star", "heart", "oval", "triangle", "ellipse"],
+        "hard": ["diamond", "octagon", "parallelogram", "rhombus", "trapezoid"]
+    },
+    "vegetables":{
+        "easy": ["corn", "peas", "chili", "tomato", "garlic"],
+        "medium": ["carrot", "broccoli", "cucumber", "pumpkin", "radish"],
+        "hard": ["coriander", "cauliflower", "mushrooms", "beetroot", "eggplant"]
+    },
+    "vehicles":{
+        "easy": ["ship", "boat", "car", "bus", "van"],
+        "medium": ["rocket", "airplane", "truck", "train", "sailboat"],
+        "hard": ["helicopter", "motorcycle", "airplane", "submarine", "bicycle"]
+    }
+}
